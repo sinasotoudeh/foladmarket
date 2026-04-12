@@ -1,0 +1,37 @@
+.page-rating-container {
+  margin: 20px 0;
+  text-align: center;
+}
+.page-rating-container .stars {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+}
+.page-rating-container .stars .star:hover,
+.page-rating-container .stars .star:hover ~ .star {
+  color: #ffc107;
+}
+.page-rating-container .rating-summary {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #444;
+}
+.page-rating-container .rating-message {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: green;
+}
+.page-rating-container .star {
+  font-size: 2em;
+  color: #ccc;
+  margin: 0 3px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.page-rating-container .star.filled {
+  color: #f5b301;
+}
+.page-rating-container .rating-summary {
+  margin-top: 8px;
+  font-weight: bold;
+}

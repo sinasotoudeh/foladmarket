@@ -1,0 +1,81 @@
+.fm-featured-products-slider {
+    position: relative;
+    background: #fff;
+    padding: 14px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    width: 750px;
+    /* سایز ثابت */
+    margin: auto;
+    overflow: hidden;
+}
+
+.fm-slider-wrapper {
+    position: relative;
+    min-height: 500px;
+    /* ارتفاع ثابت تا پرش نداشته باشیم */
+}
+
+.fm-slide {
+    display: none;
+    text-align: center;
+}
+
+.fm-slide.fm-active {
+    display: block;
+}
+
+.fm-title-btn {
+    display: inline-block;
+    background: #f3b50d;
+    border-radius: 10px;
+    padding: 8px 14px;
+    color: #353535;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.fm-price-wrapper {
+    margin-top: 10px;
+}
+
+.fm-nav-prev,
+.fm-nav-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.fm-nav-prev {
+    left: 10px;
+}
+
+.fm-nav-next {
+    right: 10px;
+}
+
+.fm-pagination {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.fm-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.fm-dot.fm-active {
+    background: #f3b50d;
+}

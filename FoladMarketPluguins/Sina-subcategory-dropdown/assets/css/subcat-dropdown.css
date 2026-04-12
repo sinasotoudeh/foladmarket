@@ -1,0 +1,90 @@
+/* ===== ظرف کلی ===== */
+.subcat-dropdown {
+  position: relative;
+  font-family: inherit;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== label ===== */
+.subcat-dropdown .dropdown-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: .5rem;
+  font-size: 1rem;
+}
+
+/* ===== فیلد کلیک‌شدنی ===== */
+.subcat-dropdown .dropdown-field {
+  border: 1px solid #ccc;
+  border-radius: .25rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  position: relative;
+}
+.subcat-dropdown .dropdown-field:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,123,255,.25);
+}
+
+/* ===== placeholder ===== */
+.subcat-dropdown .dropdown-placeholder {
+  color: #777;
+}
+
+/* ===== منوی آبشاری ===== */
+.subcat-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  margin: .25rem 0 0 0;
+  padding: .5rem 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: .25rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  list-style: none;
+  display: none;
+  z-index: 1000;
+}
+
+/* نمایش منو */
+.subcat-dropdown.open .dropdown-menu {
+  display: block;
+}
+
+/* ===== آیتم سطح اول ===== */
+.subcat-dropdown .fm-lvl1 {
+  padding: .25rem 1rem;
+}
+.subcat-dropdown .fm-lvl1-link {
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+/* ===== زیرمنو سطح دوم ===== */
+.subcat-dropdown .lvl1 .fm-sub-menu {
+  list-style: none;
+  margin: .25rem 0 0 1.5rem;
+  padding: 0;
+}
+.subcat-dropdown .fm-lvl2 {
+  padding: .25rem 1rem;
+}
+.subcat-dropdown .fm-lvl2-link {
+  font-size: .9rem;
+  text-decoration: none;
+  color: #555;
+  display: block;
+}
+
+/* ===== hover & current ===== */
+.subcat-dropdown .dropdown-menu a:hover {
+  background: #f5f5f5;
+  border-radius: .25rem;
+}

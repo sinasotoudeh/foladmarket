@@ -1,0 +1,106 @@
+.price-table-wrapper table.custom-product-table {
+    width: 100%;
+    text-align: center;
+    direction: rtl;
+    color: #333;
+    table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;      /* مهم: collapse را جدا کن */
+  border-spacing: 0 5px;         /* 10px فاصله عمودی بین ردیف‌ها */
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.custom-product-table caption {
+    display:none;
+}
+
+.custom-product-table th {
+     position: sticky;
+     top: 0;
+      z-index: 4;
+    font-size: 14px;
+    font-weight: 700;
+    color: #f3b50d;
+    padding: 5px;
+    border: none;
+    border-radius: 15px;
+    border-bottom: 5px solid #f0f0f0;
+    border-top: 5px solid #f0f0f0;
+    border-right: 5px solid #f0f0f0;
+    border-left:5px solid #f0f0f0;
+
+    background: #343434;
+}
+
+.custom-product-table td {
+    font-size: 13px;
+    font-weight: 400;
+    padding: 5px 5px;
+    background-color: transparent;
+    height: 28px;
+    border:none;
+
+}
+
+/* جلوگیری از تفاوت بک‌گراند بین ردیف‌ها */
+.custom-product-table tbody tr {
+    background-color: #f9f9f9;
+    display: table-row;               /* حالت جدول حفظ شود */
+  background-color: #fff;           /* رنگ پس‌زمینه ردیف */
+  border: 2px solid #e0e0e0;        /* ضخامت و رنگ بردر ردیف */
+  border-radius: 8px;               /* شعاع گوشه‌ها */
+  overflow: hidden;                 /* تا از شعاع گوشه پیروی کند */
+}
+
+/* حذف استایل اضافی وردپرس یا قالب */
+.price-table-wrapper {
+    padding: 0;
+    margin: 0 auto;
+    max-height: 430px;         /* ارتفاع برای نمایش فقط ۱۰ ردیف */
+    overflow-y: auto;
+    overflow-x: hidden;
+      border: 3px solid #353535;      
+  border-radius: 15px;   
+}
+
+
+
+/* پیشنهاد: انیمیشن یا حالت Hover برای زیبایی بیشتر */
+.custom-product-table tbody tr:hover td {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.custom-product-table td.price-display {
+    background: linear-gradient(135deg, #ffe082, #ffc107);
+    color: #212121;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 1px #fff3cd, 0 0 6px rgba(255, 193, 7, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* افکت هاور برای ستون قیمت */
+.custom-product-table td.price-display:hover {
+    transform: scale(1.05);
+    box-shadow: inset 0 0 0 1px #fff8e1, 0 0 10px rgba(255, 193, 7, 0.5);
+    background: linear-gradient(135deg, #ffe082, #ffca28);
+}
+a.price-contact {
+    color: #212121;
+}
+
+.custom-product-table td.price-display:hover:has(a.price-contact) {
+    background: #212121 !important;
+}
+
+.custom-product-table td.price-display:hover a.price-contact {
+    color: #ffc107 !important;
+}
+@media screen and (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}

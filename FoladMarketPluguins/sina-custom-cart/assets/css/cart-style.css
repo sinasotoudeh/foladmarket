@@ -1,0 +1,1639 @@
+/**
+ * Sina Custom Cart - Professional Stylesheet
+ * نسخه نهایی با رنگ‌بندی اختصاصی
+ *
+ * @package Sina_Custom_Cart
+ * @version 2.1.0
+ * @author Sina Development Team
+ */
+/* دکمه با افکت پالس و گرادینت */
+.sina-add-to-cart-btn {
+    position: relative;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.sina-add-to-cart-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.sina-add-to-cart-btn:hover::before {
+    left: 100%;
+}
+
+.sina-add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.sina-add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.7);
+    }
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+    .sina-add-to-cart-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+}
+
+/* ===============================================
+   متغیرهای CSS - رنگ‌های سایت
+   =============================================== */
+:root {
+    /* رنگ‌های اصلی سایت */
+    --sina-primary: #f3b50d;
+    --sina-primary-dark: #d19a0a;
+    --sina-primary-light: rgba(243, 181, 13, 0.1);
+
+    --sina-secondary: #343434;
+    --sina-secondary-dark: #1a1a1a;
+    --sina-secondary-light: #666666;
+
+    /* رنگ‌های وضعیت */
+    --sina-success: #46b450;
+    --sina-danger: #dc3232;
+    --sina-warning: #ffb900;
+    --sina-info: #00a0d2;
+
+    /* رنگ‌های پس‌زمینه */
+    --sina-bg-primary: #ffffff;
+    --sina-bg-secondary: #f9f9f9;
+    --sina-bg-light: #f5f5f5;
+    --sina-bg-dark: #343434;
+    --sina-bg-overlay: rgba(52, 52, 52, 0.7);
+
+    /* رنگ‌های متن */
+    --sina-text-primary: #343434;
+    --sina-text-input-primary: #343434;
+    --sina-text-secondary: #666666;
+    --sina-text-light: #999999;
+    --sina-text-white: #ffffff;
+
+    /* حاشیه‌ها */
+    --sina-border-color: ##1a1a1a !important;
+
+    /* شعاع گوشه‌ها */
+    --sina-radius-sm: 4px;
+    --sina-radius: 8px;
+    --sina-radius-lg: 12px;
+
+    /* سایه‌ها */
+    --sina-shadow-sm: 0 2px 4px rgba(52, 52, 52, 0.08);
+    --sina-shadow: 0 4px 12px rgba(52, 52, 52, 0.1);
+    --sina-shadow-lg: 0 8px 24px rgba(52, 52, 52, 0.12);
+    --sina-shadow-hover: 0 12px 32px rgba(52, 52, 52, 0.15);
+
+    /* انیمیشن */
+    --sina-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --sina-transition-fast: all 0.15s ease;
+
+    /* فونت */
+    --sina-font-family: -apple-system, BlinkMacSystemFont, "IRANSans",'Segoe UI' Tahoma, sans-serif;
+    --sina-font-size-xs: 11px;
+    --sina-font-size-sm: 13px;
+    --sina-font-size-base: 14px;
+    --sina-font-size-lg: 16px;
+    --sina-font-size-xl: 18px;
+    --sina-font-size-2xl: 24px;
+}
+
+/* ===============================================
+   Reset و Base Styles
+   =============================================== */
+.sina-cart-wrapper *,
+.sina-checkout-wrapper * {
+    box-sizing: border-box;
+    font-family: var(--sina-font-family);
+}
+
+.sina-cart-wrapper,
+.sina-checkout-wrapper {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Screen Reader فقط */
+.screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===============================================
+   دکمه‌های اصلی
+   =============================================== */
+.sina-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: var(--sina-font-size-base);
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: var(--sina-radius);
+    cursor: pointer;
+    transition: var(--sina-transition);
+    white-space: nowrap;
+}
+
+.sina-btn svg {
+    flex-shrink: 0;
+}
+
+/* دکمه اصلی - زرد طلایی */
+.sina-btn-primary {
+    background: linear-gradient(135deg, var(--sina-primary) 0%, #d9a00b 100%);
+    color: var(--sina-secondary);
+    border-color: var(--sina-primary);
+    font-weight: 700;
+}
+
+.sina-btn-primary:hover {
+    background: linear-gradient(135deg, #d9a00b 0%, var(--sina-primary) 100%);
+    color: var(--sina-secondary-dark);
+    box-shadow: 0 6px 20px rgba(243, 181, 13, 0.4);
+    transform: translateY(-2px);
+}
+
+.sina-btn-primary:active {
+    transform: translateY(0);
+}
+
+/* دکمه ثانویه - خاکستری */
+.sina-btn-secondary {
+    background: var(--sina-bg-primary);
+    color: var(--sina-secondary);
+    border-color: var(--sina-border-color);
+}
+
+.sina-btn-secondary:hover {
+    background: var(--sina-bg-light);
+    border-color: var(--sina-secondary);
+}
+
+/* دکمه بزرگ */
+.sina-btn-large {
+    padding: 16px 32px;
+    font-size: var(--sina-font-size-lg);
+}
+
+/* ===============================================
+   صفحه سبد خرید - Layout
+   =============================================== */
+.sina-cart-wrapper {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* سبد خالی */
+.sina-cart-empty {
+    background: var(--sina-bg-primary);
+    border: 2px solid var(--sina-border-color);
+    border-radius: var(--sina-radius-lg);
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: var(--sina-shadow-sm);
+}
+
+.empty-cart-icon {
+    color: var(--sina-text-light);
+    margin-bottom: 20px;
+}
+
+.sina-cart-empty h2 {
+    color: var(--sina-secondary);
+    margin: 0 0 15px;
+    font-size: var(--sina-font-size-2xl);
+    font-weight: 700;
+}
+
+.sina-cart-empty p {
+    color: var(--sina-text-secondary);
+    margin-bottom: 30px;
+    font-size: var(--sina-font-size-lg);
+}
+
+/* هدر سبد */
+.sina-cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--sina-bg-primary);
+    border-radius: var(--sina-radius-lg);
+    box-shadow: var(--sina-shadow-sm);
+}
+
+.sina-cart-header h2 {
+    color: var(--sina-secondary);
+    margin: 0;
+    font-size: var(--sina-font-size-2xl);
+    font-weight: 700;
+}
+
+.sina-cart-count-badge {
+    background: var(--sina-primary);
+    color: var(--sina-secondary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: var(--sina-font-size-sm);
+    font-weight: 700;
+}
+
+/* Loading Overlay */
+.sina-cart-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--sina-bg-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.sina-cart-loading-spinner,
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--sina-border-color);
+    border-top-color: var(--sina-primary);
+    border-radius: 50%;
+    animation: sina-spin 0.8s linear infinite;
+}
+
+@keyframes sina-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===============================================
+   صفحه سبد خرید - Container اصلی
+   =============================================== */
+.sina-cart-wrapper {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    font-family: var(--sina-font-family);
+    direction: rtl;
+}
+
+/* ===============================================
+   سبد خالی
+   =============================================== */
+.sina-cart-empty {
+    background: var(--sina-bg-primary);
+    border: 2px solid var(--sina-border-color);
+    border-radius: var(--sina-radius-lg);
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: var(--sina-shadow);
+}
+
+.empty-cart-icon {
+    color: var(--sina-text-light);
+    margin-bottom: 20px;
+}
+
+.sina-cart-empty h2 {
+    color: var(--sina-secondary);
+    margin: 0 0 15px;
+    font-size: var(--sina-font-size-2xl);
+    font-weight: 700;
+}
+
+.sina-cart-empty p {
+    color: var(--sina-text-secondary);
+    margin-bottom: 30px;
+    font-size: var(--sina-font-size-lg);
+}
+
+/* ===============================================
+   هدر سبد خرید
+   =============================================== */
+.sina-cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--sina-bg-primary);
+    border-radius: var(--sina-radius-lg);
+    box-shadow: var(--sina-shadow);
+}
+
+.sina-cart-header h2 {
+    color: var(--sina-secondary);
+    margin: 0;
+    font-size: var(--sina-font-size-2xl);
+    font-weight: 700;
+}
+
+.sina-cart-count-badge {
+    background: var(--sina-primary);
+    color: var(--sina-secondary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: var(--sina-font-size-sm);
+    font-weight: 700;
+}
+
+/* ===============================================
+   Loading Overlay
+   =============================================== */
+.sina-cart-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--sina-bg-overlay);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.sina-cart-loading.active {
+    display: flex;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(243, 181, 13, 0.3);
+    border-top-color: var(--sina-primary);
+    border-radius: 50%;
+    animation: sina-spinner-rotate 0.8s linear infinite;
+}
+
+@keyframes sina-spinner-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===============================================
+   جدول سبد خرید - Container
+   =============================================== */
+.sina-cart-content {
+    display: block;
+    width: 100%;
+}
+
+.sina-cart-table-wrapper {
+    font-family: var(--sina-font-family)!important;
+    overflow-x: auto;
+    background: var(--sina-bg-primary);
+    border-radius: var(--sina-radius-lg);
+    box-shadow: var(--sina-shadow);
+    margin-bottom: 30px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ===============================================
+   جدول اصلی
+   =============================================== */
+.sina-cart-table {
+    font-family: var(--sina-font-family);
+    table-layout: auto; /* ← اجازه می‌دهد محتوا عرض را تعیین کند */
+    min-width: unset;   /* ← حذف حداقل عرض ثابت */
+    width: 100%;
+}
+
+/* ===============================================
+   سرتیتر جدول (thead)
+   =============================================== */
+.sina-cart-table thead {
+    background: var(--sina-secondary-dark);
+    border-bottom: 3px solid var(--sina-primary);
+}
+
+.sina-cart-table thead th {
+    padding: 16px 12px;
+    text-align: center;
+    color: var(--sina-text-white);
+    font-size: var(--sina-font-size-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: normal !important;
+    }
+
+/* تنظیم عرض ستون‌ها */
+.sina-cart-table .col-image {
+    width: 100px;
+    text-align: center;
+}
+.sina-cart-table .col-product,
+.sina-cart-table .col-specs
+{
+    width: auto;
+    min-width: max-content;
+    /* ← عرض حداقلی متناسب با محتوای واقعی */
+}
+.sina-cart-table .col-price {
+        width: auto !important;
+        min-width: max-content;
+}
+/* ===============================================
+   ردیف‌های جدول (tbody tr)
+   =============================================== */
+.sina-cart-table tbody tr {
+    border-bottom: 1px solid var(--sina-border-color);
+    transition: var(--sina-transition-fast);
+    background: var(--sina-bg-primary);
+}
+
+.sina-cart-table tbody tr:hover {
+    background: var(--sina-bg-secondary);
+}
+
+.sina-cart-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* ===============================================
+   سلول‌های جدول (td)
+   =============================================== */
+.sina-cart-table td {
+    padding: 20px 12px;
+    vertical-align: middle;
+    color: var(--sina-text-primary);
+}
+
+/* ===============================================
+   ستون تصویر محصول
+   =============================================== */
+.sina-cart-item-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.sina-cart-item-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--sina-radius);
+    border: 2px solid var(--sina-border-color);
+    transition: var(--sina-transition);
+    margin-bottom : 12px;
+}
+
+.sina-cart-item-image img:hover {
+    transform: scale(1.05);
+    border-color: var(--sina-primary);
+}
+
+.no-image-placeholder {
+    width: 80px;
+    height: 80px;
+    background: var(--sina-bg-secondary);
+    border: 2px dashed var(--sina-border-color);
+    border-radius: var(--sina-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sina-text-light);
+}
+
+/* ===============================================
+   ستون نام محصول
+   =============================================== */
+.sina-cart-item-name {
+    text-align: right;
+    padding-right: 15px !important;
+}
+
+.product-name-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.product-name-wrapper strong {
+    color: var(--sina-secondary);
+    font-size: var(--sina-font-size-base);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.product-subtitle {
+    color: var(--sina-text-secondary);
+    font-size: var(--sina-font-size-sm);
+    line-height: 1.3;
+}
+
+.product-sku {
+    display: inline-block;
+    color: var(--sina-text-light);
+    font-size: var(--sina-font-size-xs);
+    background: var(--sina-bg-secondary);
+    padding: 3px 8px;
+    border-radius: var(--sina-radius-sm);
+    font-weight: 600;
+}
+
+/* ===============================================
+   ستون مشخصات محصول
+   =============================================== */
+.sina-cart-item-specs {
+    text-align: right;
+    padding-right: 15px !important;
+}
+
+.specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--sina-font-size-sm);
+    background: var(--sina-bg-light);
+    padding: 5px 10px;
+    border-radius: var(--sina-radius-sm);
+    line-height: 1.3;
+}
+
+.spec-label {
+    color: var(--sina-text-secondary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.spec-value {
+    color: var(--sina-secondary);
+    font-weight: 700;
+}
+
+/* ===============================================
+   ستون قیمت واحد
+   =============================================== */
+.sina-cart-item-price {
+    text-align: center;
+}
+
+.price-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.price-amount {
+    color: var(--sina-secondary);
+    font-size: var(--sina-font-size-lg);
+    font-weight: 700;
+    white-space: normal !important;
+}
+.price-currency {
+    color: var(--sina-text-secondary);
+    font-size: var(--sina-font-size-sm);
+    font-weight: 600;
+}
+
+/* ===============================================
+   ستون تعداد (کنترل وزن)
+   =============================================== */
+.sina-cart-item-quantity {
+    text-align: center;
+}
+
+.quantity-controls {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--sina-border-color);
+    border-radius: var(--sina-radius);
+    overflow: hidden;
+    background: var(--sina-bg-primary);
+}
+
+.qty-btn {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sina-bg-secondary);
+    color: var(--sina-secondary);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    transition: var(--sina-transition-fast);
+    user-select: none;
+}
+
+.qty-btn:hover {
+    background: var(--sina-primary);
+    color: var(--sina-secondary-dark);
+}
+
+.qty-btn:active {
+    transform: scale(0.95);
+}
+
+.qty-btn:focus {
+    outline: 2px solid var(--sina-primary);
+    outline-offset: -2px;
+    z-index: 1;
+}
+
+.sina-cart-quantity-input {
+    width: 70px;
+    height: 38px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid var(--sina-border-color);
+    border-right: 1px solid var(--sina-border-color);
+    font-size: var(--sina-font-size-base);
+    font-weight: 700;
+    color: var(--sina-secondary);
+    background: var(--sina-bg-primary);
+    -moz-appearance: textfield;
+}
+
+.sina-cart-quantity-input::-webkit-outer-spin-button,
+.sina-cart-quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.sina-cart-quantity-input:focus {
+    outline: 2px solid var(--sina-primary);
+    outline-offset: -2px;
+    z-index: 1;
+}
+
+/* ===============================================
+   ستون قیمت کل
+   =============================================== */
+.sina-cart-item-total {
+    text-align: center;
+}
+
+.total-price-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.total-amount {
+    color: var(--sina-primary);
+    font-size: var(--sina-font-size-xl);
+    font-weight: 700;
+    white-space: normal !important;
+}
+
+.total-currency {
+    color: var(--sina-text-secondary);
+    font-size: var(--sina-font-size-sm);
+    font-weight: 600;
+}
+
+/* ===============================================
+   ستون دکمه حذف
+   =============================================== */
+.sina-cart-item-remove {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.sina-remove-cart-item {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sina-bg-secondary);
+    color: var(--sina-danger);
+    border: 2px solid var(--sina-border-color);
+    border-radius: var(--sina-radius);
+    cursor: pointer;
+    transition: var(--sina-transition);
+}
+
+.sina-remove-cart-item:hover {
+    background: var(--sina-danger);
+    color: var(--sina-text-white);
+    border-color: var(--sina-danger);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.sina-remove-cart-item:focus {
+    outline: 2px solid var(--sina-danger);
+    outline-offset: 2px;
+}
+
+.sina-remove-cart-item svg {
+    flex-shrink: 0;
+}
+
+/* ===============================================
+   خلاصه سبد خرید
+   =============================================== */
+.sina-cart-summary {
+    font-family: var(--sina-font-family)!important;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.sina-cart-totals {
+    width: 100%;
+    max-width: 420px;
+    background: var(--sina-bg-primary);
+    padding: 30px;
+    border-radius: var(--sina-radius-lg);
+    box-shadow: var(--sina-shadow-lg);
+    border: 2px solid var(--sina-primary);
+}
+
+.sina-cart-totals h3 {
+    margin: 0 0 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--sina-primary);
+    color: var(--sina-secondary);
+    font-size: var(--sina-font-size-xl);
+    font-weight: 700;
+}
+
+/* ===============================================
+   جدول خلاصه
+   =============================================== */
+.totals-table {
+    width: 100%;
+    margin-bottom: 25px;
+    border-collapse: collapse;
+}
+
+.totals-table tbody tr {
+    border-bottom: 1px solid var(--sina-border-color);
+}
+
+.totals-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.totals-table td {
+    padding: 14px 0;
+    font-size: var(--sina-font-size-base);
+    color: var(--sina-text-primary);
+}
+
+.totals-table td:first-child {
+    color: var(--sina-text-secondary);
+    font-weight: 600;
+    text-align: right;
+}
+
+.totals-table td:last-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--sina-secondary);
+}
+
+.totals-table .total-row {
+    border-top: 2px solid var(--sina-primary) !important;
+    border-bottom: none !important;
+}
+
+.totals-table .total-row td {
+    padding-top: 18px !important;
+    padding-bottom: 0 !important;
+    font-size: var(--sina-font-size-lg) !important;
+}
+
+.totals-table .cart-total-amount {
+    color: var(--sina-primary) !important;
+    font-size: var(--sina-font-size-2xl) !important;
+    font-weight: 700 !important;
+}
+.cart-item-count {
+    padding: 8px;
+}
+/* ===============================================
+   دکمه‌های اکشن
+   =============================================== */
+.sina-cart-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sina-cart-actions .sina-btn {
+    flex: 1;
+    min-width: 160px;
+    justify-content: center;
+}
+
+/* =============================================== =============================================== =============================================== =============================================== ===============================================
+   Responsive - تبلت
+   =============================================== */ 
+@media (max-width: 1024px) {
+    .sina-cart-table {
+        min-width: unset !important;
+        width: 100% !important;
+        table-layout: auto !important;
+        font-size: var(--sina-font-size-sm);
+    }
+
+    .sina-cart-table .col-product,
+    .sina-cart-table .col-specs {
+            width: auto !important;
+            min-width: max-content;
+    }
+
+    .sina-cart-totals {
+        max-width: 100%;
+    }
+}
+
+/* ===============================================
+   Responsive - موبایل
+   =============================================== */
+@media (max-width: 768px) {
+    .sina-cart-wrapper {
+        padding: 0 0px;
+        margin: 10px 0;
+    }
+
+    .sina-cart-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .sina-cart-header h2 {
+        font-size: var(--sina-font-size-xl);
+    }
+
+    /* تبدیل جدول به کارت در موبایل */
+    .sina-cart-table-wrapper {
+        overflow-x: visible;
+    }
+
+    .sina-cart-table {
+        min-width: 100%;
+    }
+
+    .sina-cart-table thead {
+        display: none;
+    }
+
+    .sina-cart-table tbody {
+        display: block;
+    }
+
+    .sina-cart-table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 2px solid var(--sina-border-color);
+        border-radius: var(--sina-radius-lg);
+        padding: 15px;
+        box-shadow: var(--sina-shadow-sm);
+    }
+
+    .sina-cart-table tbody tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .sina-cart-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        text-align: right !important;
+        border: none !important;
+    }
+
+    .sina-cart-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--sina-secondary);
+        margin-left: 15px;
+        flex-shrink: 0;
+    }
+
+    /* استثناها برای موبایل */
+    .sina-cart-item-image {
+        display: none !important;
+    }
+
+    .sina-cart-item-image::before {
+        display: none!important;
+    }
+
+    .sina-cart-item-name,
+    .sina-cart-item-specs {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .product-name-wrapper,
+    .specs-list {
+        width: 100%;
+    }
+
+    .price-wrapper,
+    .total-price-wrapper {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .quantity-controls {
+        width: auto;
+    }
+
+    .sina-cart-item-remove {
+        justify-content: flex-end;
+    }
+
+    /* خلاصه سبد در موبایل */
+    .sina-cart-summary {
+        justify-content: center;
+    }
+
+    .sina-cart-totals {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .sina-cart-actions {
+        flex-direction: column;
+    }
+
+    .sina-cart-actions .sina-btn {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+/* ===============================================
+   Responsive - موبایل کوچک
+   =============================================== */
+@media (max-width: 480px) {
+    .sina-cart-header h2 {
+        font-size: var(--sina-font-size-lg);
+    }
+
+    .sina-cart-count-badge {
+        padding: 6px 12px;
+        font-size: var(--sina-font-size-xs);
+    }
+
+    .sina-cart-table tbody tr {
+        padding: 12px;
+    }
+
+    .sina-cart-table td {
+        padding: 10px 0;
+        font-size: var(--sina-font-size-sm);
+    }
+
+    .sina-cart-item-image img,
+    .no-image-placeholder {
+        display: none !important;
+    }
+
+    .qty-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+
+    .sina-cart-quantity-input {
+        width: 60px;
+        height: 34px;
+    }
+
+    .sina-remove-cart-item {
+        width: 34px;
+        height: 34px;
+    }
+
+    .sina-cart-totals {
+        padding: 15px;
+    }
+
+    .totals-table td {
+        padding: 10px 0;
+        font-size: var(--sina-font-size-sm);
+    }
+}
+
+/* =======================================================================================================================================================================================================================================
+   صفحه Checkout===============================================*/ .sina-checkout-wrapper {
+       max-width: 100%;
+       margin: 30px auto;
+       padding: 0 20px;
+   }
+
+   .sina-checkout-header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-bottom: 30px;
+       padding: 20px;
+       background: var(--sina-bg-primary);
+       border-radius: var(--sina-radius-lg);
+       box-shadow: var(--sina-shadow-sm);
+   }
+
+   .sina-checkout-header h2 {
+       color: var(--sina-secondary);
+       margin: 0;
+       font-size: var(--sina-font-size-2xl);
+       font-weight: 700;
+   }
+
+   .sina-checkout-empty {
+       text-align: center;
+       padding: 80px 20px;
+       background: var(--sina-bg-light);
+       border-radius: var(--sina-radius-lg);
+       box-shadow: var(--sina-shadow-sm);
+   }
+
+   .sina-checkout-empty h2 {
+       color: var(--sina-secondary);
+       margin: 0 0 15px;
+       font-size: var(--sina-font-size-2xl);
+       font-weight: 700;
+   }
+
+   .sina-checkout-empty p {
+       color: var(--sina-secondary-light);
+       margin-bottom: 25px;
+       font-size: var(--sina-font-size-lg);
+   }
+
+   .sina-checkout-content {
+       display: grid;
+       grid-template-columns: minmax(300px, 2fr) minmax(250px, 400px);
+       gap: 40px;
+       align-items: start;
+       width: 100%;
+   }
+
+   /* فرم اطلاعات مشتری */
+   .sina-checkout-billing {
+       background: var(--sina-bg-primary);
+       padding: 30px;
+       border-radius: var(--sina-radius-lg);
+       box-shadow: var(--sina-shadow);
+       border: 1px solid var(--sina-border-color);
+   }
+
+   .sina-checkout-billing h3 {
+       margin: 0 0 25px;
+       padding-bottom: 15px;
+       border-bottom: 2px solid var(--sina-primary);
+       color: var(--sina-secondary);
+       font-size: var(--sina-font-size-xl);
+       font-weight: 700;
+   }
+
+   .sina-form-grid {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       gap: 20px;
+       margin-bottom: 20px;
+   }
+
+   .sina-form-row {
+       margin-bottom: 20px;
+   }
+
+   .sina-form-row.full-width {
+       grid-column: 1 / -1;
+   }
+
+   .sina-form-row label {
+       display: block;
+       margin-bottom: 8px;
+       color: var(--sina-secondary);
+       font-weight: 600;
+       font-size: var(--sina-font-size-sm);
+   }
+
+   .required {
+       color: var(--sina-danger);
+       margin-right: 3px;
+       font-weight: 700;
+   }
+
+   .sina-form-row input[type="text"],
+   .sina-form-row input[type="email"],
+   .sina-form-row input[type="tel"],
+   .sina-form-row textarea {
+       width: 100%;
+       padding: 12px 15px;
+       border: 2px solid var(--sina-border-color);
+       border-radius: var(--sina-radius);
+       font-size: var(--sina-font-size-base);
+       font-family: inherit;
+       transition: var(--sina-transition-fast);
+       background: var(--sina-bg-primary);
+       color: var(--sina-text-input-primary);
+   }
+
+   .sina-form-row input:focus,
+   .sina-form-row textarea:focus {
+       border-color: var(--sina-primary);
+       outline: none;
+       box-shadow: 0 0 0 3px var(--sina-primary-light);
+   }
+
+   .sina-form-row textarea {
+       min-height: 100px;
+       resize: vertical;
+   }
+
+   /* خلاصه سفارش */
+   .sina-checkout-summary {
+       background: var(--sina-bg-primary);
+       padding: 30px;
+       border-radius: var(--sina-radius-lg);
+       box-shadow: var(--sina-shadow);
+       border: 2px solid var(--sina-primary);
+       position: sticky;
+       top: 20px;
+   }
+
+   .sina-checkout-summary h3 {
+       margin: 0 0 20px;
+       padding-bottom: 15px;
+       border-bottom: 2px solid var(--sina-primary);
+       color: var(--sina-secondary);
+       font-size: var(--sina-font-size-xl);
+       font-weight: 700;
+   }
+
+   /* آیتم‌های سفارش */
+   .order-items {
+       max-height: 400px;
+       overflow-y: auto;
+       margin-bottom: 20px;
+       padding-left: 5px;
+   }
+
+   .order-items::-webkit-scrollbar {
+       width: 6px;
+   }
+
+   .order-items::-webkit-scrollbar-track {
+       background: var(--sina-bg-light);
+       border-radius: 3px;
+   }
+
+   .order-items::-webkit-scrollbar-thumb {
+       background: var(--sina-primary);
+       border-radius: 3px;
+   }
+
+   .order-item {
+       display: flex;
+       gap: 12px;
+       padding: 15px;
+       margin-bottom: 12px;
+       background: var(--sina-bg-light);
+       border-radius: var(--sina-radius);
+       transition: var(--sina-transition-fast);
+   }
+
+   .order-item:hover {
+       background: var(--sina-bg-secondary);
+   }
+
+   .order-item:last-child {
+       margin-bottom: 0;
+   }
+
+   .item-image img {
+       width: 60px;
+       height: 60px;
+       object-fit: cover;
+       border-radius: var(--sina-radius);
+       border: 2px solid var(--sina-border-color);
+   }
+
+   .item-details {
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+       gap: 6px;
+   }
+
+   .item-name strong {
+       color: var(--sina-secondary);
+       font-size: var(--sina-font-size-base);
+       display: block;
+       margin-bottom: 4px;
+   }
+
+   .item-name small {
+       color: var(--sina-text-secondary);
+       font-size: var(--sina-font-size-xs);
+   }
+
+   .item-meta {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       font-size: var(--sina-font-size-sm);
+   }
+
+   .item-quantity {
+       color: var(--sina-text-secondary);
+       font-weight: 600;
+   }
+
+   .item-price {
+       color: var(--sina-secondary);
+       font-weight: 700;
+   }
+
+   /* جمع‌بندی سفارش */
+   .order-summary {
+       border-top: 2px solid var(--sina-border-color);
+       padding-top: 20px;
+       margin-bottom: 25px;
+   }
+
+   .summary-row {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 12px 0;
+       font-size: var(--sina-font-size-base);
+       border-bottom: 1px solid var(--sina-border-color);
+   }
+
+   .summary-row:last-child {
+       border-bottom: none;
+   }
+
+   .summary-row.total-row {
+       border-top: 2px solid var(--sina-primary);
+       padding-top: 15px;
+       margin-top: 10px;
+       font-size: var(--sina-font-size-lg);
+   }
+
+   .summary-row span:first-child {
+       color: var(--sina-text-secondary);
+   }
+
+   .summary-row span:last-child,
+   .summary-row strong {
+       color: var(--sina-secondary);
+       font-weight: 700;
+   }
+
+   /* دکمه ثبت سفارش */
+   .sina-checkout-actions {
+       margin-bottom: 20px;
+   }
+
+   .sina-checkout-actions .sina-btn-large {
+       width: 100%;
+       padding: 16px 30px;
+       font-size: var(--sina-font-size-lg);
+       font-weight: 700;
+       position: relative;
+   }
+
+   #sina-checkout-submit:hover {
+       transform: translateY(-2px);
+       box-shadow: 0 8px 25px rgba(243, 181, 13, 0.5);
+   }
+
+   #sina-checkout-submit:active {
+       transform: translateY(0);
+   }
+
+   .button-loading {
+       display: none;
+   }
+
+   #sina-checkout-submit.loading .button-text {
+       display: none;
+   }
+
+   #sina-checkout-submit.loading .button-loading {
+       display: inline;
+   }
+
+   #sina-checkout-submit:disabled {
+       opacity: 0.6;
+       cursor: not-allowed;
+   }
+
+   /* یادداشت Checkout */
+   .checkout-note {
+       text-align: center;
+       padding: 15px;
+       background: var(--sina-bg-light);
+       border-radius: var(--sina-radius);
+   }
+
+   .checkout-note small {
+       color: var(--sina-text-secondary);
+       font-size: var(--sina-font-size-xs);
+   }
+
+   .checkout-note a {
+       color: var(--sina-primary);
+       text-decoration: underline;
+       font-weight: 600;
+   }
+
+   .checkout-note a:hover {
+       color: var(--sina-secondary);
+   }
+
+
+/* ===============================================
+   پیام‌ها و Notices
+   =============================================== */
+.sina-notice {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: var(--sina-radius);
+    border-left: 4px solid;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--sina-font-size-base);
+}
+
+.sina-notice-success {
+    background: rgba(70, 180, 80, 0.1);
+    border-color: var(--sina-success);
+    color: var(--sina-success);
+}
+
+.sina-notice-error {
+    background: rgba(220, 50, 50, 0.1);
+    border-color: var(--sina-danger);
+    color: var(--sina-danger);
+}
+
+.sina-notice-warning {
+    background: rgba(255, 185, 0, 0.1);
+    border-color: var(--sina-warning);
+    color: #996f00;
+}
+
+.sina-notice-info {
+    background: rgba(0, 160, 210, 0.1);
+    border-color: var(--sina-info);
+    color: var(--sina-info);
+}
+
+/* ===============================================
+   Responsive Design
+   =============================================== */
+
+/* تبلت (768px - 1024px) */
+@media (max-width: 1024px) {
+
+    .sina-checkout-wrapper {
+        padding: 0 15px;
+    }
+
+
+    .sina-checkout-content {
+        grid-template-columns: 1fr 350px;
+        gap: 30px;
+    }
+
+    .sina-checkout-summary {
+        position: static;
+    }
+}
+
+/* موبایل بزرگ و تبلت کوچک (480px - 768px) */
+@media (max-width: 768px) {
+    :root {
+        --sina-font-size-base: 13px;
+        --sina-font-size-lg: 15px;
+        --sina-font-size-xl: 17px;
+        --sina-font-size-2xl: 22px;
+    }
+
+
+    .sina-checkout-wrapper {
+        margin: 10px 0;
+        padding: 0 0px;
+    }
+
+
+    .sina-checkout-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+
+
+
+
+    /* Checkout موبایل */
+    .sina-checkout-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .sina-checkout-billing,
+    .sina-checkout-summary {
+        padding: 20px;
+    }
+
+    .sina-form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .order-items {
+        max-height: 300px;
+    }
+
+    .sina-btn-large {
+        padding: 14px 24px;
+        font-size: var(--sina-font-size-base);
+    }
+}
+
+/* موبایل کوچک (کمتر از 480px) */
+@media (max-width: 480px) {
+    :root {
+        --sina-font-size-base: 12px;
+        --sina-font-size-lg: 14px;
+        --sina-font-size-xl: 16px;
+        --sina-font-size-2xl: 20px;
+    }
+
+    .sina-checkout-wrapper {
+        padding: 0 0px;
+    }
+
+    .sina-checkout-header h2 {
+        font-size: var(--sina-font-size-xl);
+    }
+
+
+
+    .sina-checkout-billing,
+    .sina-checkout-summary {
+        padding: 15px;
+    }
+
+    .sina-btn {
+        padding: 10px 16px;
+        font-size: var(--sina-font-size-sm);
+    }
+
+    .sina-btn-large {
+        padding: 12px 20px;
+        font-size: var(--sina-font-size-base);
+    }
+
+    .order-item {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .item-image img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* ===============================================
+   Print Styles
+   =============================================== */
+@media print {
+
+    .sina-cart-header,
+    .sina-checkout-header,
+    .sina-cart-actions,
+    .sina-checkout-actions,
+    .sina-remove-cart-item,
+    .qty-btn,
+    .sina-btn {
+        display: none !important;
+    }
+
+    .sina-cart-table,
+    .sina-checkout-summary {
+        box-shadow: none !important;
+        border: 1px solid var(--sina-border-color);
+    }
+
+    body {
+        font-size: 12pt;
+    }
+}
+
+/* ===============================================
+   Accessibility Improvements
+   =============================================== */
+.sina-btn:focus,
+.qty-btn:focus,
+.sina-cart-quantity-input:focus,
+.sina-form-row input:focus,
+.sina-form-row textarea:focus {
+    outline: 3px solid var(--sina-primary);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --sina-border-color: #000000;
+        --sina-text-secondary: #000000;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --sina-bg-primary: #1a1a1a;
+        --sina-bg-secondary: #252525;
+        --sina-secondary: #ffffff;
+        --sina-bg-light: #2f2f2f;
+        --sina-text-primary: #ffffff;
+        --sina-text-secondary: #cccccc;
+        --sina-text-light: #999999;
+        --sina-border-color: #dddddd !important;
+
+    }
+}

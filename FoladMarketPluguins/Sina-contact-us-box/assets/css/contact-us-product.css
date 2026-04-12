@@ -1,0 +1,137 @@
+.custom-carousel {
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scrollCarousel 20s linear infinite;
+}
+
+.carousel-track img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+/* Widget Contact Us Product */
+.contact-us-product {
+    font-family: "IRANSans", Sans-serif;
+    direction: rtl;
+    text-align: right;
+    width: 100% !important;
+    margin: 0 auto;
+    padding: 15px !important;
+    box-sizing: border-box;
+    background-color: #353535 !important;
+    border-radius: 15px !important;
+    color: #ffffff;
+}
+
+/* Title */
+.contact-us-product .cup-title {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: #f3b50d !important;
+    text-align: center;
+    padding: 10px 5px !important;
+    margin: 0 0 10px !important;
+    border: 2px solid #f3b50d !important;
+    border-radius: 8px;
+    line-height: 1.2;
+}
+
+/* Image */
+.contact-us-product .cup-image {
+    text-align: center;
+    margin-bottom: 15px !important;
+}
+
+.contact-us-product .cup-image img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #f3b50d;
+}
+
+/* Info Box */
+.contact-us-product .cup-box {
+    background-color: #2a2a2a;
+    border: 2px solid #444;
+    border-radius: 10px;
+    padding: 12px !important;
+}
+
+/* List */
+.contact-us-product .cup-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-us-product .cup-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+    font-size: 0.95rem !important;
+}
+
+.contact-us-product .cup-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-us-product .cup-list li strong {
+    color: #f3b50d;
+    font-weight: 600;
+    width: 50%;
+}
+
+/* شماره تماس */
+.contact-us-product .cup-list li span {
+    color: #ffffff;
+    font-weight: 400;
+}
+.contact-us-product .cup-list a {
+    color: #ffffff!important; /* رنگ پیش‌فرض لینک‌ها (طلایی، مثل تیتر) */
+    transition: color 0.3s ease;
+}
+.contact-us-product .cup-list a:hover {
+    color: #f3b50d!important;
+    text-decoration: underline;
+}
+/* Responsive adjustments (narrow) */
+@media (max-width: 480px) {
+    .contact-us-product {
+        padding: 10px !important;
+    }
+
+    .contact-us-product .cup-title {
+        font-size: 1rem !important;
+        padding: 8px !important;
+    }
+
+    .contact-us-product .cup-image img {
+        max-width: 100px;
+    }
+
+    .contact-us-product .cup-list li {
+        font-size: 0.9rem !important;
+    }
+}

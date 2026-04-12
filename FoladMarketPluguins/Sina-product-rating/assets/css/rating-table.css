@@ -1,0 +1,97 @@
+.page-rating-container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+/* موقعیت‌دهی به خلاصه و پیام برای جایگزینی */
+.page-rating-container .rating-summary,
+.page-rating-container .rating-message {
+    transition: opacity 0.3s ease;
+}
+.page-rating-container .stars {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+/* ستاره‌های سفید هنگام هاور */
+.page-rating-container .stars .star:hover,
+.page-rating-container .stars .star:hover~.star {
+    color: #ffffff;
+}
+
+.page-rating-container .stars:hover .star {
+    color: #f5b301;
+}
+
+/* ولی ستاره‌هایی که سفید می‌شن نباید حاشیه قرمز داشته باشند */
+.page-rating-container .stars .star:hover,
+.page-rating-container .stars .star:hover~.star {
+    border-color: transparent;
+}
+
+.page-rating-container .rating-summary {
+        margin-right: 10px;
+    font-size: 0.9rem;
+    color: #444;
+        padding-bottom: 8px;
+}
+
+.page-rating-container .rating-message {
+            margin-right: 10px;
+    padding-bottom: 5px;
+    display: none;
+    font-size: 0.85rem;
+    color: green;
+}
+.page-rating-container.show-message .rating-summary {
+    display: none;
+}
+
+.page-rating-container.show-message .rating-message {
+    display: block;
+}
+.page-rating-container .star {
+            /* فاصله بین ستاره‌ها و متن */
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.page-rating-container .star.filled {
+    color: #353535;
+}
+.page-rating-container.rated .star.filled {
+    color: #f5b301;
+}
+
+.page-rating-container .rating-summary {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .page-rating-container .stars {
+        font-size: 20px;
+        /* ستاره‌ها کوچکتر شوند */
+    }
+
+    .page-rating-container .star {
+        font-size: 20px;
+        /* خود ستاره‌ها هم هماهنگ با والد کوچک شوند */
+    }
+
+    .page-rating-container .rating-summary {
+        margin-right: 5px;
+        font-size: 0.75rem;
+        /* میانگین کوچک‌تر */
+    }
+
+    .page-rating-container .rating-message {
+        margin-right: 5px;
+        font-size: 0.75rem;
+        /* پیام کوچک‌تر */
+    }
+}

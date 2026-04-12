@@ -1,0 +1,168 @@
+
+/* cmenu-ui.css */
+
+/* ۱. استایل اصلی ناوبری */
+.cmenu-nav {
+  background-color: #353535;
+}
+
+/* ۲. فهرست ریشه – نمایش افقی */
+.cmenu-root-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ۳. آیتم‌های ریشه */
+.cmenu-root-item {
+  position: relative;
+  margin: 0;
+}
+
+/* ۴. لیبل اصلی هر آیتم */
+.cmenu-root-label,
+.cmenu-root-item > a {
+  display: block;
+  padding: 12px 16px;
+  color: #f3b50d !important;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+/* تغییر رنگ پس‌زمینه در هاور */
+.cmenu-root-label:hover,
+.cmenu-root-item > a:hover {
+  background-color: #f3b50d !important;
+  color:#353535 !important;
+}
+
+/* ۵. گروه‌بندی لینک‌های محصولات */
+.cmenu-has-submenu .cmenu-root-label::after {
+  content: " ▼";
+  font-size: 0.7em;
+  margin-left: 4px;
+}
+
+/* ۶. زیرمنوها – پنهان در حالت عادی */
+.cmenu-submenu {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  list-style: none;
+  padding: 4px 0;
+  width:250px;
+  min-width: 180px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+/* به همه‌ی آیتم‌هایی که زیرمنو دارن بدهید */
+.cmenu-has-submenu {
+  position: relative;
+}
+.cmenu-root-item.products-link > .cmenu-submenu {
+  top: 100%;
+  left: auto;
+  right: 0;
+  margin: 0 0 0;
+}
+
+/* زیرمنوهای عمقی (Fly-out) */
+.cmenu-submenu .cmenu-has-submenu > .cmenu-submenu {
+  position: absolute;  
+  top: 0;      
+  left: auto;           
+  right: 100%;         
+  margin: 0 0 0 0;    
+}
+
+
+/* ۷. آیتم‌های زیرمنو */
+.cmenu-submenu-item {
+  margin: 0;
+}
+
+/* لینک‌های زیرمنو */
+.cmenu-submenu-item a {
+  display: block;
+  padding: 8px 14px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+/* حالت هاور زیرمنو */
+.cmenu-submenu-item a:hover {
+  background-color: #f0f0f0;
+}
+
+/* ۸. تمایز دسته‌ها و محصولات */
+.cmenu-subcategory a::before {
+  content: "📁 ";
+}
+.cmenu-product a::before {
+  content: "🛒 ";
+}
+
+
+@media (min-width: 769px) {
+  .cmenu-has-submenu:hover > .cmenu-submenu {
+    display: block;
+  }
+}
+
+/* ۱۰. پاسخگویی (responsive) */
+
+@media screen and (max-width: 768px) {
+
+  .cmenu-root-item.products-link.open > .cmenu-submenu {
+    position: absolute;     
+    top: 100%;            
+    left: 0;         
+    width: 300px;         
+    display: block;
+    background-color: #fff;
+    z-index: 2000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-top: 1px solid #ddd;
+  }
+
+
+  /* ۴. مخفی کردن وقتی open نیست (مثل قبل) */
+  .cmenu-root-item.products-link > .cmenu-submenu {
+    display: none;
+  }
+
+  /* ۵. استایل آیتم‌های داخل تب ریشه (سجنت) */
+  .cmenu-root-item.products-link .cmenu-submenu-item > a {
+    display: block;
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* ۶. زیرمنوی داخلی (عمق‌های بعدی) */
+  .cmenu-submenu .cmenu-has-submenu > .cmenu-submenu {
+    position: static;           /* زیر خود ایتم قرار بگیرد */
+    width: 100%;
+    padding: 5px 15px;
+    background-color: #f0f0f0;
+    box-shadow: none;
+    border: none;
+    display: none;              /* پیش‌فرض مخفی */
+  }
+
+  /* ۷. نمایش زیرمنوی داخلی وقتی والد open است */
+  .cmenu-submenu .cmenu-has-submenu.open > .cmenu-submenu {
+    display: block !important;
+  }
+
+  .cmenu-root-item.products-link .cmenu-root-label:hover {
+    border-radius: 5px;  /* عدد دلخواه خودت */
+  }
+
+}

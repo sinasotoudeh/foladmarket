@@ -1,0 +1,117 @@
+
+.fm-featured-posts .fm-featured-display {
+    width: 300px!important;
+    flex: 0 0 300px;
+    /* عرض ثابت */
+    text-align: center;
+    margin: 0 auto;
+}
+
+.fm-featured-link {
+    width: 300px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* تصویر 300×300 ثابت */
+.fm-featured-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    /* برای برش منظم تصویر */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.fm-featured-link:hover .fm-featured-image {
+    transform: scale(1.02);
+}
+
+/* عنوان و خلاصه زیر تصویر */
+.fm-featured-title {
+    font-size: 1.3rem!important;
+    margin: 15px 0 5px;
+    font-weight: bold;
+    width: 300px;
+}
+
+.fm-featured-excerpt {
+    font-size: 0.9rem!important;
+    color: #666;
+    line-height: 1.5;
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* ساختار کلی */
+.fm-featured-posts {
+    display: flex;
+    position: relative;
+    min-height: 562px;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* لیست پست‌ها */
+.fm-post-list {
+    width: 300px;
+    flex: 1 1 auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* رنگ پیش‌فرض دکمه داخل آیتم */
+.fm-post-item .fm-post-button {
+    color: #353535;
+    background: #f3b50d;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.fm-post-item.fm-active .fm-post-button {
+    color: #f3b50d !important;
+    background: #353535 !important;
+}
+.fm-post-button {
+    display: block;
+    width: 100%;
+    line-height: 1.5!important;
+    text-align: right;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.fm-post-button:hover {
+    color: #353535 !important;
+    background: #abb8c3 !important;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .fm-featured-posts {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fm-post-list {
+        width: 100%;
+    }
+}
+
+.entry-content ul.fm-post-list,
+.entry-content ol.fm-post-list {
+    padding: 0 !important;
+    margin: 0 !important;
+}

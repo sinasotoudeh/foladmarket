@@ -1,0 +1,116 @@
+.sc-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.sc-popup-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#steel-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    grid-auto-rows: minmax(40px, auto);
+    /* adjust row height */
+    gap: 10px;
+    /* spacing between buttons */
+    padding: 10px;
+}
+
+#steel-buttons .sc-steel-btn {
+    width: 100%;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    color: #353535;
+}
+
+.sc-steel-btn.selected {
+    background: #353535 !important;
+    color: #f3b50d !important;
+}
+
+.sc-btn {
+    padding: 8px 16px;
+    margin: 5px;
+    color: #353535 !important;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.sc-btn:hover {
+    background: #353535 !important;
+        color: #f3b50d !important;
+}
+#steel-table {
+    border-collapse: separate;
+    /* important for border-radius */
+    border-spacing: 0;
+    /* remove gaps */
+    border: 1px solid #ddd;
+    /* optional border */
+    border-radius: 15px;
+    /* round corners */
+    overflow: hidden;
+    /* ensures corners clip */
+    width: 100%;
+    /* make it responsive */
+}
+
+/* Center align all cells */
+#steel-table td,
+#steel-table th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+    /* add some spacing */
+}
+/* First row (headers) */
+#steel-table tr:first-child td {
+    background-color: #353535 !important;
+    /* dark blue */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* First column (property names) */
+#steel-table td:first-child {
+    background-color: #f3b50d !important;
+    /* light gray */
+    font-weight: bold;
+}
+/* ردیف‌های یکی در میان (زیبرا) */
+#steel-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+    /* خاکستری روشن */
+}
+
+#steel-table tr:nth-child(odd) td {
+    background-color: #ffffff;
+    /* سفید */
+}
+
+/* هاور کل ردیف */
+#steel-table tr:hover td {
+    background-color: #e6f2ff;
+    /* آبی خیلی روشن هنگام هاور */
+    transition: background-color 0.2s ease;
+}

@@ -1,0 +1,222 @@
+.instagram-stories-container {
+    background-color: #353535 !important;
+    padding: 10px;
+    position: relative;
+    direction: ltr;
+    border-radius: 15px;
+}
+.isa-story-topbox {
+    color: #f3b50d;
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3PX;
+    Padding-right: 3PX;
+    margin-bottom: 5px !important;
+    /* اختیاری: اگر می‌خواهی حاشیه‌ش صفر شود */
+    font-weight: 700 !important;
+    border: 2px solid #f3b50d;
+    border-radius: 14px;
+}
+.stories-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/12.5;
+    background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+    border: 2px solid #f3b50d;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* نوار پیشرفت */
+.stories-progress {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    gap: 6px;
+    z-index: 10;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #fff 0%, #e0e0e0 100%);
+    transition: width 0.1s linear;
+}
+
+.progress-fill.completed {
+    width: 100%;
+}
+
+/* محتوای استوری */
+.stories-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.story-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.story-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.story-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* دکمه‌های ناوبری */
+.story-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.story-nav:hover {
+    background: rgba(0, 0, 0, 0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.story-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.story-prev {
+    left: 12px;
+}
+
+.story-next {
+    right: 12px;
+}
+
+.story-zoom-button {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.5)!important;
+    color: #000;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.story-zoom-button:hover {
+    background: rgba(243, 181, 13, 1);
+    transform: scale(1.1);
+}
+
+.story-zoom-button:active {
+    transform: scale(0.9);
+}
+/* شمارنده */
+.story-counter {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+}
+
+/* پیام عدم وجود استوری */
+.isa-no-stories {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* حالت موبایل */
+@media (max-width: 768px) {
+    .instagram-stories-container {
+        max-width: 100%;
+        margin: 10px auto;
+    }
+
+    .stories-wrapper {
+        border-radius: 0;
+    }
+
+    .story-nav {
+        width: 36px;
+        height: 36px;
+    }
+
+    .story-prev {
+        left: 8px;
+    }
+
+    .story-next {
+        right: 8px;
+    }
+}
+
+/* انیمیشن لودینگ */
+@keyframes shimmer {
+    0% {
+        background-position: -500px 0;
+    }
+
+    100% {
+        background-position: 500px 0;
+    }
+}
+
+.story-slide.loading {
+    background: linear-gradient(90deg, #f0f0f0 0px, #f8f8f8 40px, #f0f0f0 80px);
+    background-size: 500px 100%;
+    animation: shimmer 1.5s infinite;
+}

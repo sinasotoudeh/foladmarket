@@ -1,0 +1,146 @@
+
+/* Updated CSS for a narrow, non-responsive calculator widget */
+.product-weight-calculator {
+    font-family: "IRANSans", Sans-serif;
+    direction: rtl;
+    text-align: right;
+    width: 100% !important;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #353535 !important;
+    border-radius: 15px !important;
+
+}
+.product-weight-calculator .calculator-title h4 {
+    color: #f3b50d;
+     font-size: 16px !important;      /* اندازه دلخواهت را اینجا بگذار */
+  line-height: 1.2 !important;
+      text-align: center;
+padding-top:10px;
+padding-bottom:10px;
+padding-left:3PX;
+Padding-right:3PX;
+  margin-bottom: 5px !important;            /* اختیاری: اگر می‌خواهی حاشیه‌ش صفر شود */
+  font-weight: 700 !important;     
+    border: 2px solid #f3b50d;
+    border-radius: 8px;
+
+}
+
+/* Shape Selection stacked vertically */
+.product-weight-calculator .row.shape-selection {
+  display: flex !important;       /* حتماً فلکس باشد */
+  gap: 8px !important;            /* فاصله دلخواه بین باکس‌ها */
+  margin-bottom: 15px;            /* فاصله از بخش‌های بعدی */
+}
+
+.product-weight-calculator .shape-frame {
+      display: flex !important;            /* یا inline-flex */
+  align-items: center !important;      /* تراز عمودی وسط */
+  justify-content: center;             /* مرکز کردن افقی */
+  gap: 5px; 
+      flex: auto !important;      /* هر آیتم فضای مساوی می‌گیرد */
+  width: 100%;         /* width:100% را بردار */
+  margin-bottom: 0 !important;    /* چون با gap فاصله داریم */
+  box-sizing: border-box;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+.product-weight-calculator .shape-frame h4 {
+  font-size: 16px !important;      /* اندازه دلخواهت را اینجا بگذار */
+  line-height: 1.2 !important;     /* اختیاری: برای کنترل فاصله‌ی خطوط */
+  margin: 0 !important;            /* اختیاری: اگر می‌خواهی حاشیه‌ش صفر شود */
+  font-weight: 700 !important;     /* اختیاری: اگر می‌خواهی کمی نازک‌تر یا ضخیم‌تر باشد */
+}
+
+.product-weight-calculator .shape-frame.selected {
+    border-color: #FFCA00;
+    background-color: #FFCA00;
+}
+
+/* Inputs stacked in a column */
+.product-weight-calculator .row,
+.product-weight-calculator .two-column-row,
+.product-weight-calculator .three-column-row {
+    display: block;
+}
+
+.product-weight-calculator .input-group {
+    display: block;
+    width: 100% !important;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.product-weight-calculator label {
+    font-size: 0.9rem !important;
+    color:#ffffff;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.product-weight-calculator input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.product-weight-calculator input:focus {
+    border-color: #007bff;
+    transform: scale(1.02);
+}
+
+/* Results stacked */
+.product-weight-calculator .result-frame {
+    display: block;
+    border: 2px solid #FBA83C;
+    border-radius: 10px;
+    background-color: #fff1df;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.product-weight-calculator .result-column {
+    display: block;
+    margin-bottom: 0px;
+    padding: 5px;
+    border-radius: 6px;
+}
+#singleCutPrice, #singlePrice, #singleWeight {
+        font-size: 1rem !important;
+        color: red;
+}
+
+/*.product-weight-calculator .price-result {*/
+/*.product-weight-calculator .cut-price-result {*/
+
+.product-weight-calculator .weight-result {
+    border: 2px solid #007bff;
+    background-color: #e6f7ff;
+}
+
+.product-weight-calculator .price-result {
+    border: 2px solid #ffcc00;
+    background-color: #fff8e1;
+}
+
+.product-weight-calculator .cut-price-result {
+    border: 2px solid #333A3D;
+    background-color: #DDDFE0;
+}
+
+.product-weight-calculator .result-column p {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}

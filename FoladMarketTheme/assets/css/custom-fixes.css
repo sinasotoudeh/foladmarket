@@ -1,0 +1,40 @@
+/* Table Scroll Fixes */
+.table-wrapper {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    /* استایل اسکرول بار باریک برای زیبایی */
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #f1f1f1;
+}
+
+/* استایل اسکرول بار برای کروم و سافاری */
+.table-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.table-wrapper table {
+    width: 100%;
+    /* تغییر مهم: به جای min-width ثابت، از max-content استفاده کنید تا اگر جدول کوچکتر بود وسط چین بماند، اگر بزرگتر بود اسکرول بخورد */
+    min-width: 600px; 
+    border-collapse: collapse;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+    white-space: nowrap;
+    padding: 10px;
+    text-align: right;
+    /* جلوگیری از به هم ریختگی ارتفاع */
+    vertical-align: middle;
+}

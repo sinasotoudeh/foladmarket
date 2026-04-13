@@ -100,7 +100,3 @@ Displaying a product gallery in a full-width mobile container with a 20-second d
 ---
 
 _Note: This plugin requires a minimum of PHP 7.4+ (due to Null Coalescing operators `??`) and WordPress 5.0+._
-
-```
-
-```

@@ -50,47 +50,57 @@ Will attempt to pull images from an ACF field named `product_stories` on the cur
 
 ```text
 [acf_stories]
+```
 
 ### Advanced Usage with Parameters
+
 Customize the behavior and appearance of the stories using shortcode attributes:
 
-text
+```text
 [acf_stories field="product_stories" duration="10000" width="600px" show_controls="true" loop="true"]
+```
 
 ### Shortcode Attributes Reference
 
-| Parameter       | Default             | Description                                                                                             |
-| :-------------- | :------------------ | :------------------------------------------------------------------------------------------------------ |
-| `field`         | `product_stories`   | The name of the ACF Gallery or Repeater/Image field containing the stories.                             |
-| `duration`      | `2500`              | Duration to show each story slide in milliseconds ($ms$). *(Note: JS default fallback is $15000$)*      |
-| `autoplay`      | `true`              | Set to `false` to disable automatic progression of stories.                                             |
-| `show_controls` | `true`              | Set to `false` to hide the next/prev navigation arrows and the zoom button.                             |
-| `loop`          | `true`              | Set to `false` to stop at the last story instead of looping back to the beginning.                      |
-| `width`         | `500px`             | Maximum width of the story container. Can use `px`, `%`, etc. (e.g., `100%`).                           |
+| Parameter       | Default           | Description                                                                                        |
+| :-------------- | :---------------- | :------------------------------------------------------------------------------------------------- |
+| `field`         | `product_stories` | The name of the ACF Gallery or Repeater/Image field containing the stories.                        |
+| `duration`      | `2500`            | Duration to show each story slide in milliseconds ($ms$). _(Note: JS default fallback is $15000$)_ |
+| `autoplay`      | `true`            | Set to `false` to disable automatic progression of stories.                                        |
+| `show_controls` | `true`            | Set to `false` to hide the next/prev navigation arrows and the zoom button.                        |
+| `loop`          | `true`            | Set to `false` to stop at the last story instead of looping back to the beginning.                 |
+| `width`         | `500px`           | Maximum width of the story container. Can use `px`, `%`, etc. (e.g., `100%`).                      |
 
 **Example for a Product Page:**
 Displaying a product gallery in a full-width mobile container with a 20-second delay per image:
-text
+
+```text
 [acf_stories field="product_gallery" duration="20000" width="100%"]
+```
 
 ---
 
 ## 🏗️ Architecture & Code Quality (For Reviewers)
 
-* **Singleton Pattern:** The core class `Instagram_Stories_ACF` utilizes the Singleton design pattern to ensure only one instance of the plugin runs, conserving resources.
-* **Security:**
-  * Strict `ABSPATH` check to prevent direct file access.
-  * Robust output escaping using `esc_attr()`, `esc_html()`, and `esc_url()` to prevent XSS vulnerabilities.
-* **Resilient Data Parsing:** The `$raw` data from ACF is evaluated cautiously. The plugin gracefully handles structural differences in ACF returns (IDs vs. Arrays), ensuring fatal errors are avoided if ACF settings change.
-* **Modern JavaScript:** The frontend logic is written using ES6 Classes (`class InstagramStories`) for clean scope management and maintainability, encapsulated within an IIFE to avoid global namespace pollution.
+- **Singleton Pattern:** The core class `Instagram_Stories_ACF` utilizes the Singleton design pattern to ensure only one instance of the plugin runs, conserving resources.
+- **Security:**
+  - Strict `ABSPATH` check to prevent direct file access.
+  - Robust output escaping using `esc_attr()`, `esc_html()`, and `esc_url()` to prevent XSS vulnerabilities.
+- **Resilient Data Parsing:** The `$raw` data from ACF is evaluated cautiously. The plugin gracefully handles structural differences in ACF returns (IDs vs. Arrays), ensuring fatal errors are avoided if ACF settings change.
+- **Modern JavaScript:** The frontend logic is written using ES6 Classes (`class InstagramStories`) for clean scope management and maintainability, encapsulated within an IIFE to avoid global namespace pollution.
 
 ---
 
 ## 👨‍💻 Author
 
 **Sina Sotoudeh**
-* Version: 1.2.0
+
+- Version: 1.2.0
 
 ---
-*Note: This plugin requires a minimum of PHP 7.4+ (due to Null Coalescing operators `??`) and WordPress 5.0+.*
+
+_Note: This plugin requires a minimum of PHP 7.4+ (due to Null Coalescing operators `??`) and WordPress 5.0+._
+
+```
+
 ```
